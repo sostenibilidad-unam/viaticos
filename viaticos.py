@@ -7,7 +7,9 @@ from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PySide2.QtCore import QFile
 from gui import Ui_MainWindow
 
-#C:\Users\arabela\Anaconda3\Scripts\pyinstaller --onefile --noconsole viaticos.py
+# pyside2-uic gui.ui -o gui.py 
+# C:\Users\arabela\Anaconda3\Scripts\pyinstaller --onefile --noconsole viaticos.py
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
