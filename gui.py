@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'gui.ui',
 # licensing of 'gui.ui' applies.
 #
-# Created: Sat Feb  2 14:49:30 2019
+# Created: Sat Feb  2 14:52:30 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -149,7 +149,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.addLayout(self.horizontalLayout_3)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar()
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 843, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 843, 22))
         self.menubar.setObjectName("menubar")
         self.menuOpciones = QtWidgets.QMenu(self.menubar)
         self.menuOpciones.setObjectName("menuOpciones")
@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
+        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "Viaticos LANCIS", None, -1))
         self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Proyecto", None, -1))
         self.input_carpeta.setText(QtWidgets.QApplication.translate("MainWindow", "Carpeta Facturas", None, -1))
         self.cancelarButton.setText(QtWidgets.QApplication.translate("MainWindow", "Cancelar", None, -1))
