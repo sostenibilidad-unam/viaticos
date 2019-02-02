@@ -7,7 +7,10 @@ from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PySide2.QtCore import QFile
 from gui import Ui_MainWindow
 
-#C:\Users\arabela\Anaconda3\Scripts\pyinstaller --onefile --noconsole viaticos.py
+
+#C:\Users\arabela\Anaconda3\Scripts\pyinstaller --noconsole viaticos.spec
+#excludes=['scipy','numpy']
+#C:\Users\arabela\Anaconda3\Scripts\pyinstaller viaticos.spec
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -17,10 +20,12 @@ class MainWindow(QMainWindow):
         self.ui.input_carpeta.clicked.connect(self.cualCarpeta)
 
         self.proyectos = ['','Papiit', 'Consolidacion', 'Fomix', 'Binacional', 'Otros']
-        self.personas = ['Daniela', 'Edith', 'Rodrigo', 'Fidel', 'Ileana', 'Luis', 'Nadia', 'Paola', 'Victor', 'Yosune']
+        self.personas = ['Daniela', 'Edith', 'Rodrigo', 'Fidel', 'Ileana', 'Luis', 'Nadia', 'Paola', 'Victor', 'Yosune', "Rocio", "Bertha"]
         self.ui.proyecto_box.addItems(self.proyectos)
         self.ui.proyecto_box.currentIndexChanged.connect(self.seleccionaProyecto)
-
+        actionAgregar_o_quitar_personas.triggered.connect(self.editPersonas)
+    def editPersonas(self):
+        print("editaria")
     def seleccionaProyecto(self):
         self.ui.input_carpeta.setEnabled(True)
     def cualCarpeta(self):
