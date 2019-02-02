@@ -3,14 +3,80 @@ import xml.etree.ElementTree as etree
 import os
 import xlsxwriter
 import sys
-from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
-from PySide2.QtCore import QFile
+from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog, QWidget, QTableWidget,QTableWidgetItem,QPushButton
+from PySide2.QtCore import QFile, QRect
 from gui import Ui_MainWindow
+import json
+from os.path import dirname, realpath, join, abspath
 
 # pyside2-uic gui.ui -o gui.py
 #C:\Users\arabela\Anaconda3\Scripts\pyinstaller --noconsole viaticos.spec
 #excludes=['scipy','numpy']
 #C:\Users\arabela\Anaconda3\Scripts\pyinstaller viaticos.spec
+class EditPersonasDialog(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        self.tabla = QTableWidget(self)
+        self.tabla.setColumnCount(1)
+
+        self.tabla.setColumnWidth(0,150)
+        self.tabla.setHorizontalHeaderItem (0, QTableWidgetItem("Personas"))
+        self.guardar = QPushButton("Gardar",self)
+        self.guardar.clicked.connect(self.guardarPersonas)
+        try:
+            self.dirPath = dirname(abspath(__file__))
+        except NameError:  # We are the main py2exe script, not a module
+            self.dirPath = dirname(abspath(sys.argv[0]))
+
+        with open(join(self.dirPath,'personas.json')) as p:
+            personas = json.load(p)
+
+
+        self.tabla.setRowCount(len(personas)+5)
+        row = -1
+        for persona in personas:
+            row += 1
+            self.tabla.setItem(row, 0, QTableWidgetItem(persona))
+        #self.lista_personas.setItem(1, 0, newItem)
+    def guardarPersonas(self):
+        personas = []
+        for row in range(self.tabla.rowCount()):
+            print (row)
+            if self.tabla.item(row,0):
+                print ("agregando: ", self.tabla.item(row,0).text())
+                personas.append(self.tabla.item(row,0).text())
+
+        with open(join(self.dirPath,'personas.json'), 'w') as p:
+            json.dump(personas, p)
+        self.close()
+
+
+class EditProyectosDialog(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+        self.tabla = QTableWidget(self)
+        self.tabla.setColumnCount(1)
+
+        self.tabla.setColumnWidth(0,150)
+        self.tabla.setHorizontalHeaderItem (0, QTableWidgetItem("Proyectos"))
+
+        try:
+            dirPath = dirname(abspath(__file__))
+        except NameError:  # We are the main py2exe script, not a module
+            dirPath = dirname(abspath(sys.argv[0]))
+
+        with open(join(dirPath,'proyectos.json')) as p:
+            proyectos = json.load(p)
+
+
+        self.tabla.setRowCount(len(proyectos)+5)
+        row = -1
+        for proyecto in proyectos[1:]:
+            row += 1
+            self.tabla.setItem(row, 0, QTableWidgetItem(proyecto))
+        #self.lista_personas.setItem(1, 0, newItem)
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -18,14 +84,36 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.input_carpeta.clicked.connect(self.cualCarpeta)
+        try:
+            dirPath = dirname(abspath(__file__))
+        except NameError:  # We are the main py2exe script, not a module
+            dirPath = dirname(abspath(sys.argv[0]))
 
-        self.proyectos = ['','Papiit', 'Consolidacion', 'Fomix', 'Binacional', 'Otros']
-        self.personas = ['Daniela', 'Edith', 'Rodrigo', 'Fidel', 'Ileana', 'Luis', 'Nadia', 'Paola', 'Victor', 'Yosune', "Rocio", "Bertha"]
+        with open(join(dirPath,'proyectos.json')) as p:
+            self.proyectos = json.load(p)
+        #self.proyectos = ['','Papiit', 'Consolidacion', 'Fomix', 'Binacional', 'Otros']
+        with open(join(dirPath,'personas.json')) as p:
+            self.personas = json.load(p)
+        #self.personas = ['Daniela', 'Edith', 'Rodrigo', 'Fidel', 'Ileana', 'Luis', 'Nadia', 'Paola', 'Victor', 'Yosune', "Rocio", "Bertha"]
         self.ui.proyecto_box.addItems(self.proyectos)
         self.ui.proyecto_box.currentIndexChanged.connect(self.seleccionaProyecto)
-        actionAgregar_o_quitar_personas.triggered.connect(self.editPersonas)
+        self.ui.actionAgregar_o_quitar_personas.triggered.connect(self.editPersonas)
+        self.ui.actionAgregar_o_quitar_proyectos.triggered.connect(self.editProyectos)
+    def leerPersonas(self):
+        with open(join(self.dirPath,'personas.json')) as p:
+            self.personas = json.load(p)
     def editPersonas(self):
-        print("editaria")
+        print("editaria personas")
+        self.w = EditPersonasDialog()
+        #self.w.close.connect(self.leerPersonas)
+        self.w.setGeometry(QRect(100, 100, 400, 200))
+        self.w.show()
+    def editProyectos(self):
+        print("editaria proyectos")
+        self.w = EditProyectosDialog()
+        self.w.setGeometry(QRect(100, 100, 400, 200))
+        self.w.show()
+
     def seleccionaProyecto(self):
         self.ui.input_carpeta.setEnabled(True)
     def cualCarpeta(self):
