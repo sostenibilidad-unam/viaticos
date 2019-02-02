@@ -83,11 +83,29 @@
      <x>0</x>
      <y>0</y>
      <width>900</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuOpciones">
+    <property name="title">
+     <string>Opciones</string>
+    </property>
+    <addaction name="actionAgregar_o_quitar_personas"/>
+    <addaction name="actionAgregar_o_quitar_proyectos"/>
+   </widget>
+   <addaction name="menuOpciones"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAgregar_o_quitar_personas">
+   <property name="text">
+    <string>Agregar o quitar personas</string>
+   </property>
+  </action>
+  <action name="actionAgregar_o_quitar_proyectos">
+   <property name="text">
+    <string>Agregar o quitar proyectos</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
