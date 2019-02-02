@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'gui.ui',
 # licensing of 'gui.ui' applies.
 #
-# Created: Sat Feb  2 12:43:11 2019
+# Created: Sat Feb  2 12:49:00 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(743, 289)
+        MainWindow.resize(810, 414)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_2)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.splitter = QtWidgets.QSplitter(self.frame_2)
-        self.splitter.setMinimumSize(QtCore.QSize(122, 0))
+        self.splitter.setMinimumSize(QtCore.QSize(133, 0))
         self.splitter.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.splitter.setOrientation(QtCore.Qt.Vertical)
         self.splitter.setObjectName("splitter")
@@ -68,7 +68,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.proyecto_box.sizePolicy().hasHeightForWidth())
         self.proyecto_box.setSizePolicy(sizePolicy)
-        self.proyecto_box.setMinimumSize(QtCore.QSize(70, 0))
+        self.proyecto_box.setMinimumSize(QtCore.QSize(85, 0))
         self.proyecto_box.setObjectName("proyecto_box")
         self.horizontalLayout.addWidget(self.proyecto_box)
         self.input_carpeta = QtWidgets.QPushButton(self.splitter)
@@ -150,7 +150,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.addWidget(self.facturas_path)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar()
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 743, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 810, 21))
         self.menubar.setObjectName("menubar")
         self.menuOpciones = QtWidgets.QMenu(self.menubar)
         self.menuOpciones.setObjectName("menuOpciones")
