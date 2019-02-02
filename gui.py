@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'gui.ui',
 # licensing of 'gui.ui' applies.
 #
-# Created: Sat Feb  2 12:49:00 2019
+# Created: Sat Feb  2 12:53:48 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -34,18 +34,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(21)
+        sizePolicy.setHorizontalStretch(25)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
         self.frame_2.setSizePolicy(sizePolicy)
-        self.frame_2.setMinimumSize(QtCore.QSize(120, 0))
+        self.frame_2.setMinimumSize(QtCore.QSize(160, 0))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_2)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.splitter = QtWidgets.QSplitter(self.frame_2)
-        self.splitter.setMinimumSize(QtCore.QSize(133, 0))
+        self.splitter.setMinimumSize(QtCore.QSize(150, 0))
         self.splitter.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.splitter.setOrientation(QtCore.Qt.Vertical)
         self.splitter.setObjectName("splitter")
@@ -93,7 +93,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.frame_2)
         self.editFrame = QtWidgets.QFrame(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(14)
+        sizePolicy.setHorizontalStretch(13)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.editFrame.sizePolicy().hasHeightForWidth())
         self.editFrame.setSizePolicy(sizePolicy)
