@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'gui.ui',
 # licensing of 'gui.ui' applies.
 #
-# Created: Sat Feb  2 13:39:50 2019
+# Created: Sat Feb  2 14:49:30 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(810, 414)
+        MainWindow.resize(843, 489)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
@@ -147,13 +147,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setStretch(1, 13)
         self.horizontalLayout_3.setStretch(2, 65)
         self.horizontalLayout_4.addLayout(self.horizontalLayout_3)
-        self.facturas_path = QtWidgets.QLabel(self.centralwidget)
-        self.facturas_path.setText("")
-        self.facturas_path.setObjectName("facturas_path")
-        self.horizontalLayout_4.addWidget(self.facturas_path)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar()
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 810, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 843, 21))
         self.menubar.setObjectName("menubar")
         self.menuOpciones = QtWidgets.QMenu(self.menubar)
         self.menuOpciones.setObjectName("menuOpciones")
