@@ -6,14 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>933</width>
-    <height>448</height>
+    <width>925</width>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <widget class="QLabel" name="facturas_path">
     <property name="geometry">
      <rect>
@@ -32,11 +38,17 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>911</width>
-      <height>391</height>
+      <width>901</width>
+      <height>421</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="23,13,65">
+     <property name="spacing">
+      <number>7</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
      <item>
       <widget class="QFrame" name="frame_2">
        <property name="sizePolicy">
@@ -56,7 +68,7 @@
          <rect>
           <x>10</x>
           <y>100</y>
-          <width>171</width>
+          <width>191</width>
           <height>151</height>
          </rect>
         </property>
@@ -108,7 +120,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>131</width>
+          <width>111</width>
           <height>371</height>
          </rect>
         </property>
@@ -163,7 +175,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>933</width>
+     <width>925</width>
      <height>21</height>
     </rect>
    </property>
