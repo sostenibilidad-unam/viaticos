@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'gui.ui',
 # licensing of 'gui.ui' applies.
 #
-# Created: Sat Feb  2 10:49:09 2019
+# Created: Sat Feb  2 11:08:14 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,17 +13,24 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(933, 448)
+        MainWindow.resize(925, 504)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
         self.facturas_path = QtWidgets.QLabel(self.centralwidget)
         self.facturas_path.setGeometry(QtCore.QRect(30, 240, 571, 31))
         self.facturas_path.setText("")
         self.facturas_path.setObjectName("facturas_path")
         self.horizontalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(10, 10, 911, 391))
+        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(10, 10, 901, 421))
         self.horizontalLayoutWidget_3.setObjectName("horizontalLayoutWidget_3")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_3)
+        self.horizontalLayout_3.setSpacing(7)
+        self.horizontalLayout_3.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.frame_2 = QtWidgets.QFrame(self.horizontalLayoutWidget_3)
@@ -36,7 +43,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.frame_2)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 100, 171, 151))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 100, 191, 151))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -65,7 +72,7 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.frame)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 131, 371))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 111, 371))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -96,9 +103,12 @@ class Ui_MainWindow(object):
         self.textBrowser.setSizePolicy(sizePolicy)
         self.textBrowser.setObjectName("textBrowser")
         self.horizontalLayout_3.addWidget(self.textBrowser)
+        self.horizontalLayout_3.setStretch(0, 23)
+        self.horizontalLayout_3.setStretch(1, 13)
+        self.horizontalLayout_3.setStretch(2, 65)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar()
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 933, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 925, 21))
         self.menubar.setObjectName("menubar")
         self.menuOpciones = QtWidgets.QMenu(self.menubar)
         self.menuOpciones.setObjectName("menuOpciones")
