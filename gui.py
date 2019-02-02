@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'gui.ui',
 # licensing of 'gui.ui' applies.
 #
-# Created: Sat Feb  2 12:36:52 2019
+# Created: Sat Feb  2 12:43:11 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -45,8 +45,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_2)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.splitter = QtWidgets.QSplitter(self.frame_2)
-        self.splitter.setMinimumSize(QtCore.QSize(121, 0))
-        self.splitter.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.splitter.setMinimumSize(QtCore.QSize(122, 0))
+        self.splitter.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.splitter.setOrientation(QtCore.Qt.Vertical)
         self.splitter.setObjectName("splitter")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.splitter)
