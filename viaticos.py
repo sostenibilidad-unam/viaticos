@@ -92,6 +92,9 @@ class MainWindow(QMainWindow):
         #self.proyectos = ['','Papiit', 'Consolidacion', 'Fomix', 'Binacional', 'Otros']
         self.leerPersonas()
         self.leerProyectos()
+        self.ui.tableWidget.setColumnCount(1)
+
+        self.ui.tableWidget.setColumnWidth(0,100)
 
         #self.personas = ['Daniela', 'Edith', 'Rodrigo', 'Fidel', 'Ileana', 'Luis', 'Nadia', 'Paola', 'Victor', 'Yosune', "Rocio", "Bertha"]
         self.ui.proyecto_box.addItems(self.proyectos)
@@ -114,31 +117,27 @@ class MainWindow(QMainWindow):
         print("editaria personas")
 
         self.ui.editFrame.show()
-        self.ui.tableView.setColumnCount(1)
-
-        self.ui.tableView.setColumnWidth(0,150)
-        self.ui.tableView.setHorizontalHeaderItem (0, QTableWidgetItem("Personas"))
-        self.ui.tableView.setRowCount(len(self.personas)+5)
+        self.ui.tableWidget.setRowCount(0)
+        self.ui.tableWidget.setHorizontalHeaderItem (0, QTableWidgetItem("Personas"))
+        self.ui.tableWidget.setRowCount(len(self.personas)+5)
         row = -1
         for persona in self.personas:
             row += 1
-            self.ui.tableView.setItem(row, 0, QTableWidgetItem(persona))
+            self.ui.tableWidget.setItem(row, 0, QTableWidgetItem(persona))
     def editProyectos(self):
         self.ui.editFrame.show()
-        self.ui.tableView.setColumnCount(1)
-
-        self.ui.tableView.setColumnWidth(0,150)
-        self.ui.tableView.setHorizontalHeaderItem (0, QTableWidgetItem("Proyectos"))
-        self.ui.tableView.setRowCount(len(self.proyectos)+5)
+        self.ui.tableWidget.setRowCount(0)
+        self.ui.tableWidget.setHorizontalHeaderItem (0, QTableWidgetItem("Proyectos"))
+        self.ui.tableWidget.setRowCount(len(self.proyectos)+5)
         row = -1
-        for proyecto in self.proyectos:
+        for proyecto in self.proyectos[1:]:
             row += 1
-            self.ui.tableView.setItem(row, 0, QTableWidgetItem(proyecto))
+            self.ui.tableWidget.setItem(row, 0, QTableWidgetItem(proyecto))
 
     def guarda(self):
-        if self.ui.tableView.horizontalHeaderItem() == "Personas":
+        if self.ui.tableWidget.horizontalHeaderItem(0).text() == "Personas":
             self.guardaPersonas()
-        elif self.ui.tableView.horizontalHeaderItem() == "Proyectos":
+        elif self.ui.tableWidget.horizontalHeaderItem(0).text() == "Proyectos":
             self.guardaProyectos()
     def guardaPersonas(self):
         print("aqui guardaria personas")
