@@ -5,6 +5,7 @@ import xlsxwriter
 import sys
 from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog, QWidget, QTableWidget,QTableWidgetItem,QPushButton
 from PySide2.QtCore import QFile, QRect
+from PySide2.QtGui import QIcon
 from gui import Ui_MainWindow
 import json
 from os.path import dirname, realpath, join, abspath
@@ -83,6 +84,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
         self.ui.input_carpeta.clicked.connect(self.cualCarpeta)
         try:
             self.dirPath = dirname(abspath(__file__))
@@ -276,4 +278,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
+    app.setWindowIcon(QIcon(join(window.dirPath,'logo.ico')))
+    window.setWindowIcon(QIcon(join(window.dirPath,'logo.ico')))
     sys.exit(app.exec_())
