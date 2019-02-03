@@ -89,14 +89,14 @@ class MainWindow(QMainWindow):
         except NameError:  # We are the main py2exe script, not a module
             self.dirPath = dirname(abspath(sys.argv[0]))
 
-        #self.proyectos = ['','Papiit', 'Consolidacion', 'Fomix', 'Binacional', 'Otros']
+        #self.proyectos = ["","Papiit", "Consolidacion", "Fomix", "Binacional", "Otros"]
         self.leerPersonas()
         self.leerProyectos()
         self.ui.tableWidget.setColumnCount(1)
 
         self.ui.tableWidget.setColumnWidth(0,100)
 
-        #self.personas = ['Daniela', 'Edith', 'Rodrigo', 'Fidel', 'Ileana', 'Luis', 'Nadia', 'Paola', 'Victor', 'Yosune', "Rocio", "Bertha"]
+        #self.personas = ["Daniela", "Edith", "Rodrigo", "Fidel", "Ileana", "Luis", "Nadia", "Paola", "Victor", "Yosune", "Rocio", "Bertha"]
         self.ui.proyecto_box.addItems(self.proyectos)
         self.ui.proyecto_box.currentIndexChanged.connect(self.seleccionaProyecto)
         self.ui.actionAgregar_o_quitar_personas.triggered.connect(self.editPersonas)
@@ -141,10 +141,33 @@ class MainWindow(QMainWindow):
             self.guardaProyectos()
     def guardaPersonas(self):
         print("aqui guardaria personas")
+
+        self.personas = []
+        for row in range(self.ui.tableWidget.rowCount()):
+            print (row)
+            if self.ui.tableWidget.item(row,0):
+                if len(self.ui.tableWidget.item(row,0).text())>0:
+                    print ("agregando: ", self.ui.tableWidget.item(row,0).text())
+                    self.personas.append(self.ui.tableWidget.item(row,0).text())
+
+        with open(join(self.dirPath,'personas.json'), 'w') as p:
+            json.dump(self.personas, p)
         self.ui.editFrame.hide()
     def guardaProyectos(self):
         print("aqui guardaria proyectos")
+        self.proyectos = [""]
+        for row in range(self.ui.tableWidget.rowCount()):
+            print (row)
+            if self.ui.tableWidget.item(row,0):
+                if len(self.ui.tableWidget.item(row,0).text())>0:
+                    print ("agregando: ", self.ui.tableWidget.item(row,0).text())
+                    self.proyectos.append(self.ui.tableWidget.item(row,0).text())
+
+        with open(join(self.dirPath,'proyectos.json'), 'w') as p:
+            json.dump(self.proyectos, p)
         self.ui.editFrame.hide()
+        self.ui.proyecto_box.clear()
+        self.ui.proyecto_box.addItems(self.proyectos)
 
     def seleccionaProyecto(self):
         self.ui.input_carpeta.setEnabled(True)
@@ -153,9 +176,9 @@ class MainWindow(QMainWindow):
         esteFileChooser = QFileDialog()
         esteFileChooser.setFileMode(QFileDialog.Directory)
         if esteFileChooser.exec_():
-
+            self.ui.textBrowser.clear()
             self.esteFolder = esteFileChooser.selectedFiles()[0] + "/"
-            self.ui.facturas_path.setText(self.esteFolder)
+
             self.procesaCarpeta(self.esteFolder)
 
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>810</width>
-    <height>414</height>
+    <width>843</width>
+    <height>489</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -227,13 +227,6 @@
       </item>
      </layout>
     </item>
-    <item>
-     <widget class="QLabel" name="facturas_path">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -241,7 +234,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>810</width>
+     <width>843</width>
      <height>21</height>
     </rect>
    </property>
