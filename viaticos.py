@@ -85,34 +85,67 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.ui.input_carpeta.clicked.connect(self.cualCarpeta)
         try:
-            dirPath = dirname(abspath(__file__))
+            self.dirPath = dirname(abspath(__file__))
         except NameError:  # We are the main py2exe script, not a module
-            dirPath = dirname(abspath(sys.argv[0]))
+            self.dirPath = dirname(abspath(sys.argv[0]))
 
-        with open(join(dirPath,'proyectos.json')) as p:
-            self.proyectos = json.load(p)
         #self.proyectos = ['','Papiit', 'Consolidacion', 'Fomix', 'Binacional', 'Otros']
-        with open(join(dirPath,'personas.json')) as p:
-            self.personas = json.load(p)
+        self.leerPersonas()
+        self.leerProyectos()
+
         #self.personas = ['Daniela', 'Edith', 'Rodrigo', 'Fidel', 'Ileana', 'Luis', 'Nadia', 'Paola', 'Victor', 'Yosune', "Rocio", "Bertha"]
         self.ui.proyecto_box.addItems(self.proyectos)
         self.ui.proyecto_box.currentIndexChanged.connect(self.seleccionaProyecto)
         self.ui.actionAgregar_o_quitar_personas.triggered.connect(self.editPersonas)
         self.ui.actionAgregar_o_quitar_proyectos.triggered.connect(self.editProyectos)
+        self.ui.cancelarButton.clicked.connect(self.cancelaEditar)
+        self.ui.guardarButton.clicked.connect(self.guarda)
+        self.ui.editFrame.hide()
+
+    def cancelaEditar(self):
+        self.ui.editFrame.hide()
     def leerPersonas(self):
         with open(join(self.dirPath,'personas.json')) as p:
             self.personas = json.load(p)
+    def leerProyectos(self):
+        with open(join(self.dirPath,'proyectos.json')) as p:
+            self.proyectos = json.load(p)
     def editPersonas(self):
         print("editaria personas")
-        self.w = EditPersonasDialog()
-        #self.w.close.connect(self.leerPersonas)
-        self.w.setGeometry(QRect(100, 100, 400, 200))
-        self.w.show()
+
+        self.ui.editFrame.show()
+        self.ui.tableView.setColumnCount(1)
+
+        self.ui.tableView.setColumnWidth(0,150)
+        self.ui.tableView.setHorizontalHeaderItem (0, QTableWidgetItem("Personas"))
+        self.ui.tableView.setRowCount(len(self.personas)+5)
+        row = -1
+        for persona in self.personas:
+            row += 1
+            self.ui.tableView.setItem(row, 0, QTableWidgetItem(persona))
     def editProyectos(self):
-        print("editaria proyectos")
-        self.w = EditProyectosDialog()
-        self.w.setGeometry(QRect(100, 100, 400, 200))
-        self.w.show()
+        self.ui.editFrame.show()
+        self.ui.tableView.setColumnCount(1)
+
+        self.ui.tableView.setColumnWidth(0,150)
+        self.ui.tableView.setHorizontalHeaderItem (0, QTableWidgetItem("Proyectos"))
+        self.ui.tableView.setRowCount(len(self.proyectos)+5)
+        row = -1
+        for proyecto in self.proyectos:
+            row += 1
+            self.ui.tableView.setItem(row, 0, QTableWidgetItem(proyecto))
+
+    def guarda(self):
+        if self.ui.tableView.horizontalHeaderItem() == "Personas":
+            self.guardaPersonas()
+        elif self.ui.tableView.horizontalHeaderItem() == "Proyectos":
+            self.guardaProyectos()
+    def guardaPersonas(self):
+        print("aqui guardaria personas")
+        self.ui.editFrame.hide()
+    def guardaProyectos(self):
+        print("aqui guardaria proyectos")
+        self.ui.editFrame.hide()
 
     def seleccionaProyecto(self):
         self.ui.input_carpeta.setEnabled(True)
